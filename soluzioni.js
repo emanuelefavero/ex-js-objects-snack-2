@@ -149,7 +149,7 @@ RISPOSTE:
 Nota: La shallow copy con lo spread operator copia solo il primo livello dell'oggetto. Gli oggetti annidati rimangono condivisi tra l'originale e la copia.
 */
 
-// CODE QUESTION 5
+// CODE QUESTION 6
 {
   const chef = {
     name: 'Chef Hyur',
