@@ -185,8 +185,8 @@ Nota: La shallow copy con lo spread operator copia solo il primo livello dell'og
     return clonedObj;
   };
 
-  const clonedChef = deepClone(chef);
-  console.log(clonedChef);
+  // const clonedChef = deepClone(chef);
+  // console.log(clonedChef);
 }
 /*
 - Qual è il metodo migliore per clonare l’oggetto chef, e perché?
@@ -212,36 +212,36 @@ Nota: `structuredClone` non copia le funzioni, mentre lo spread operator copia s
     return clone;
   };
 
-  const chef = {
-    name: 'Chef Hyur',
-    age: 29,
-    makeBurger: (num = 1) => {
-      console.log(`Ecco ${num} hamburger per te!`);
-    },
-    restaurant: {
-      name: "Hyur's Burgers",
-      welcomeClient: () => {
-        console.log('Benvenuto!');
-      },
-      address: {
-        street: 'Main Street',
-        number: 123,
-        showAddress: () => {
-          console.log('Main Street 123');
-        },
-      },
-      isOpen: true,
-      openingDate: new Date(2025, 3, 11),
-    },
-  };
+  // const chef = {
+  //   name: 'Chef Hyur',
+  //   age: 29,
+  //   makeBurger: (num = 1) => {
+  //     console.log(`Ecco ${num} hamburger per te!`);
+  //   },
+  //   restaurant: {
+  //     name: "Hyur's Burgers",
+  //     welcomeClient: () => {
+  //       console.log('Benvenuto!');
+  //     },
+  //     address: {
+  //       street: 'Main Street',
+  //       number: 123,
+  //       showAddress: () => {
+  //         console.log('Main Street 123');
+  //       },
+  //     },
+  //     isOpen: true,
+  //     openingDate: new Date(2025, 3, 11),
+  //   },
+  // };
 
-  // Clonazione profonda ricorsiva semplice
-  const clonedChef = deepClone(chef);
-  console.log(clonedChef);
+  // // Clonazione profonda ricorsiva semplice
+  // const clonedChef = deepClone(chef);
+  // console.log(clonedChef);
 
-  // Clonazione profonda ricorsiva che gestisce anche oggetti complessi
-  const clonedChefAdvanced = deepCloneAdvanced(chef);
-  console.log(clonedChefAdvanced);
+  // // Clonazione profonda ricorsiva che gestisce anche oggetti complessi
+  // const clonedChefAdvanced = deepCloneAdvanced(chef);
+  // console.log(clonedChefAdvanced);
 }
 /*
 Steps della funzione deepClone:
