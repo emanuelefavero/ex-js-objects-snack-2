@@ -107,3 +107,42 @@ RISPOSTE:
 
 Nota: La shallow copy con spread operator mantiene le funzioni intatte. La deep copy con `structuredClone` mantiene gli oggetti complessi come `Date`, al contrario di `JSON.stringify`/`JSON.parse` che li trasformerebbe in stringhe.
 */
+
+// CODE QUESTION 5
+{
+  const hamburger = {
+    name: 'Cheese Burger',
+    weight: 250,
+    maker: {
+      name: 'Anonymous Chef',
+      restaurant: {
+        name: "Hyur's Burgers",
+        address: 'Main Street, 123',
+        isOpen: true,
+      },
+      age: 29,
+    },
+  };
+
+  const newRestaurant = { ...hamburger.maker.restaurant };
+  newRestaurant.name = "Hyur's II";
+  newRestaurant.address = 'Second Street, 12';
+  const secondBurger = { ...hamburger };
+  secondBurger.maker.restaurant = newRestaurant;
+  secondBurger.maker.name = 'Chef Hyur';
+
+  console.log(hamburger.maker.name); // Chef Hyur
+  console.log(secondBurger.maker.name); // Chef Hyur
+  console.log(hamburger.maker.restaurant.name); // Hyur's II
+  console.log(secondBurger.maker.restaurant.name); // Hyur's II
+}
+/*
+- Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+- Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+RISPOSTE:
+- Chef Hyur per i primi due log, Hyur's II per gli ultimi due. Il motivo principale e' che abbiamo usato una shallow copy per `secondBurger`, quindi l'oggetto `maker` è condiviso tra `hamburger` e `secondBurger`, mentre l'oggetto `restaurant` è stato copiato separatamente.
+- `hamburger`, `newRestaurant`, `secondBurger` come oggetti principali + `maker` e `restaurant` come sotto-oggetti. In totale 5 oggetti.
+
+Nota: La shallow copy con lo spread operator copia solo il primo livello dell'oggetto. Gli oggetti annidati rimangono condivisi tra l'originale e la copia.
+*/
