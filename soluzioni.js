@@ -76,3 +76,34 @@ RISPOSTA:
 
 Nota: `secondBurger` e `thirdBurger` sono copie profonde dell'oggetto `hamburger`, quindi i loro sotto-oggetti non sono condivisi in memoria.
 */
+
+// CODE QUESTION 4
+{
+  const chef = {
+    name: 'Chef Hyur',
+    age: 29,
+    makeBurger: (num = 1) => {
+      console.log(`Ecco ${num} hamburger per te!`);
+    },
+  };
+
+  const restaurant = {
+    name: "Hyur's Burgers",
+    address: {
+      street: 'Main Street',
+      number: 123,
+    },
+    openingDate: new Date(2025, 3, 11),
+    isOpen: false,
+  };
+}
+/*
+- Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+- Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
+
+RISPOSTE:
+- shallow copy con lo spread operator, perché chef è un oggetto semplice (un solo livello) e contiene una funzione.
+- deep copy con `structuredClone`, perché restaurant contiene oggetti annidati e un oggetto complesso `Date`.
+
+Nota: La shallow copy con spread operator mantiene le funzioni intatte. La deep copy con `structuredClone` mantiene gli oggetti complessi come `Date`, al contrario di `JSON.stringify`/`JSON.parse` che li trasformerebbe in stringhe.
+*/
