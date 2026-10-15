@@ -1,5 +1,7 @@
 /** @fileoverview Soluzioni degli esercizi (snacks). */
 
+import { deepClone as deepCloneAdvanced } from './deepCloneAdvanced.js';
+
 console.log('De-commenta i tests di questo file per verificare le soluzioni');
 
 // CODE QUESTION 1
@@ -229,11 +231,17 @@ Nota: `structuredClone` non copia le funzioni, mentre lo spread operator copia s
         },
       },
       isOpen: true,
+      openingDate: new Date(2025, 3, 11),
     },
   };
 
+  // Clonazione profonda ricorsiva semplice
   const clonedChef = deepClone(chef);
   console.log(clonedChef);
+
+  // Clonazione profonda ricorsiva che gestisce anche oggetti complessi
+  const clonedChefAdvanced = deepCloneAdvanced(chef);
+  console.log(clonedChefAdvanced);
 }
 /*
 Steps della funzione deepClone:
