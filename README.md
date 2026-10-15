@@ -1,5 +1,19 @@
 # EX - Snack Oggetti
 
+Esercizi di oggetti in JavaScript, dal mio corso web dev (specializzazione Frontend)
+
+## Avvio
+
+Con Node.js e npm installati, dalla cartella del progetto:
+
+```bash
+npm run dev
+```
+
+Lo script esegue [soluzioni.js](soluzioni.js), dove sono presenti le soluzioni agli esercizi.
+
+> Nota: Il file `deepCloneAdvanced.js` contiene una funzione per la clonazione profonda avanzata degli oggetti, che gestisce anche oggetti complessi come Date, RegExp, Map, Set e riferimenti circolari.
+
 ## Code Questions
 
 ### Code Question 1
