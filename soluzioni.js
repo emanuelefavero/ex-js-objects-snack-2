@@ -131,10 +131,10 @@ Nota: La shallow copy con spread operator mantiene le funzioni intatte. La deep 
   secondBurger.maker.restaurant = newRestaurant;
   secondBurger.maker.name = 'Chef Hyur';
 
-  console.log(hamburger.maker.name); // Chef Hyur
-  console.log(secondBurger.maker.name); // Chef Hyur
-  console.log(hamburger.maker.restaurant.name); // Hyur's II
-  console.log(secondBurger.maker.restaurant.name); // Hyur's II
+  // console.log(hamburger.maker.name); // Chef Hyur
+  // console.log(secondBurger.maker.name); // Chef Hyur
+  // console.log(hamburger.maker.restaurant.name); // Hyur's II
+  // console.log(secondBurger.maker.restaurant.name); // Hyur's II
 }
 /*
 - Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
@@ -145,4 +145,52 @@ RISPOSTE:
 - `hamburger`, `newRestaurant`, `secondBurger` come oggetti principali + `maker` e `restaurant` come sotto-oggetti. In totale 5 oggetti.
 
 Nota: La shallow copy con lo spread operator copia solo il primo livello dell'oggetto. Gli oggetti annidati rimangono condivisi tra l'originale e la copia.
+*/
+
+// CODE QUESTION 5
+{
+  const chef = {
+    name: 'Chef Hyur',
+    age: 29,
+    makeBurger: (num = 1) => {
+      console.log(`Ecco ${num} hamburger per te!`);
+    },
+    restaurant: {
+      name: "Hyur's Burgers",
+      welcomeClient: () => {
+        console.log('Benvenuto!');
+      },
+      address: {
+        street: 'Main Street',
+        number: 123,
+        showAddress: () => {
+          console.log('Main Street 123');
+        },
+      },
+      isOpen: true,
+    },
+  };
+
+  // Funzione ricorsiva per clonare profondamente un oggetto
+  // const deepClone = obj => {
+  //   if (obj === null || typeof obj !== 'object') return obj;
+
+  //   if (Array.isArray(obj)) return obj.map(deepClone);
+
+  //   const clonedObj = {};
+  //   for (const key in obj) clonedObj[key] = deepClone(obj[key]);
+
+  //   return clonedObj;
+  // };
+
+  // const clonedChef = deepClone(chef);
+  // console.log(clonedChef);
+}
+/*
+- Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+
+RISPOSTA:
+- Considerando che questo oggetto contiene proprietà annidate e metodi, il metodo migliore per clonarlo sarebbe utilizzare una deep copy con una funzione ricorsiva o una libreria che supporti la clonazione profonda, come `lodash.cloneDeep`.
+
+Nota: `structuredClone` non copia le funzioni, mentre lo spread operator copia solo il primo livello e non ottimale per oggetti annidati.
 */
